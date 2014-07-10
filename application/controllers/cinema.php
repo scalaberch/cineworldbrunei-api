@@ -49,7 +49,20 @@ class Cinema extends REST_Controller {
 		$this->response($result);
 	}
 
-	
+	/**
+	*	This method updates the cinema information given.
+	*	This must be only used for the `moviemanager`
+	*	@param id: The id of the cinema pertained. If this is set, returns the information for
+	*		that specific cinema. Otherwise, returns the information of all the cinemas.
+	*
+	*	@return: json object if success or failed
+	**/
+	public function updateCinemaInfo_put(){
+		header('Access-Control-Allow-Origin: *');
+		//$data = 
+
+		 $this->response(null, 200);
+	}
 
 
 
