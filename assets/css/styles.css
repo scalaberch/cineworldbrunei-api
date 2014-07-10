@@ -1,0 +1,87 @@
+/*
+
+.login-screen, #main-app-container {
+	background-color:#E74C3C;
+}
+
+.form-control:focus {
+	border-color: #E74C3C;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+color: #E74C3C;
+background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+color: #E74C3C;
+background-color: transparent;
+}
+
+#main-app-content {
+	padding-top:10%;
+	color:#e5e9ea;
+}
+
+.mob-list {
+	border-radius:5px;
+}
+
+.mob-list a {
+	color: #E74C3C;
+	background-color: #e5e9ea;
+}
+
+.mob-list h4 { font-size: 100%; }
+
+#main-menu-btns .active > a{
+	background-color: #E74C3C;
+	color:#e5e9ea;
+}
+
+.todo li, .todo li.todo-done{
+	background:transparent;
+	background: #e5e9ea;
+}
+
+.todo li .todo-name { color:#C0392B;}
+.todo li:hover .todo-name { color:#e5e9ea; }
+.todo ul { background-color:#C0392B;}
+
+.todo li.todo-done{
+	background:#C0392B;
+	color: #e5e9ea;
+}
+
+.todo li:hover{
+	background:#C0392B;
+	color: #e5e9ea;
+}
+
+*/
+
+body {
+	background-color:#1abc9c;
+}
+
+#main-app-content {
+	padding-top:10%;
+	color:#e5e9ea;
+
+	background-color:#1abc9c;
+}
+
+.movie-list li a{
+	color:#1ABC9C;
+	background-color:#e1e4e7;
+}
+
+.movie-list { background-color:#34495e; border-radius:4px; padding: 4px; }
+.movie-list li{ text-align: -webkit-match-parent; }
+.movie-list .movie-name { font-size:100%; margin:0px; padding:0px; }
+.movie-list .movie-desc { font-size:80%; color:#7F8C8D; }
+
+.profile-holder {
+	background-color:#34495e; border-radius:4px;
+	margin-bottom:2%;
+}
