@@ -89,7 +89,44 @@ class Movievote extends CI_Model{
 		} else { return false; }
 	}
 
+	/**
+	*	Method name: getMovieVotes()
+	*	Description: gets all the votes for that certain movie.
+	*
+	*	@param movie: the movie id of the movie
+	*	@return float/double: the average of the movie votes
+	**/
 
+	public function getMovieVotes($movie){
+		$total = 0, $count = 0;
+
+		// Get first all the possible 'references' of the movie
+		$query = $this->db->query("SELECT referenced_movie FROM merged_reference WHERE movie_idmovie=?", array($movie));
+		foreach($query->result() as $movies){
+
+			// Then for every reference
+			//	Get first the scrapped vote
+			$subQuery = $this->db->query("SELECT movieFeedbackStars FROM movie WHERE idmovie=?", array($movies->referenced_movie));
+			if ($subQuery->num_rows > 0){ foreach($subQuery->result as $sub){
+					$total += $sub->movieFeedbackStars;
+					$count++;
+				}
+			}
+
+			// After that, get all the user votes given that referenced_movie, if there are any
+			$subQuery = $this->db->query("SELECT votes FROM movieVotes WHERE movie_idmovie=?", array($movies->referenced_movie));
+			if ($subQuery->num_rows > 0){ foreach($subQuery->result as $sub){
+					$total += $sub->votes;
+					$count++;
+				}
+			}
+		}
+
+		// Get the average
+		$average = $total / $count;
+		return $average;
+
+	}
 
 
 
