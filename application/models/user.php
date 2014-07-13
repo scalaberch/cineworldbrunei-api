@@ -32,7 +32,7 @@ class User extends CI_Model {
 
 
     /**
-    *   Method Name: register_user()
+    *   Method Name: registerUser()
     *   Description: Registers a user to the database.
     *   Assumption: The user is not yet registered to the database
     *               Also, all inputs are already in correct form such as email (<id>@<domain>.<tag>) and 
@@ -61,6 +61,41 @@ class User extends CI_Model {
             return true;
         } else { return false; }
     }
+
+    /**
+    *   Method Name: updateUser()
+    *   Description: Updates user information in the database.
+    *   Assumption: User is already registered in the database. Also, all inputs are already in correct form 
+    *       such as email (<id>@<domain>.<tag>) and contact number ( +<country_code><area/network_code><number> )
+    *   
+    *   @param ln:  User's Last Name
+    *   @param fn:  User's First Name
+    *   @param mn:  User's Middle Name
+    *   @param sai: User's social account id (from login action)
+    *   @param sah: User's social account handler (Facebook or Twitter)
+    *   @param a:   User's address
+    *   @param e:   User's email address
+    *   @param c:   User's contact number
+    *   @param i:   the user id of the given user.
+    *
+    *   @return boolean: True if has sucessfully changed in db, false otherwise
+    **/
+
+    public function updateUser($ln, $fn, $mn, $sai, $sah, $a, $e, $c, $i){
+        $data = array('user_last_name'=>$ln, 'user_first_name'=>$fn, 'user_middle_name'=>$mn,
+                        'social_acct_id'=>$sai, 'social_acct_handler'=>$sah, 'user_address'=>$a,
+                        'user_email'=>$e, 'user_contact_number'=>$c);
+        $where = "idusers=?";
+
+        $sql = $this->db->update_string('users', $data, $where);
+        $query = $this->db->query($sql, array($i));
+
+        if ($this->db->affected_rows() > 0){
+            return true;
+        } else { return false; }
+    }
+
+
 
 
 }
